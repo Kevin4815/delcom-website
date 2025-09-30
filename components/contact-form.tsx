@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,49 +12,66 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/components/ui/radio-group";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Button } from "@/components/ui/button";
 
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  projectType: string;
+  message: string;
+  budget: string; // "<5k" | "5k-10k" | "10k-25k" | ">25k"
+};
+
+const initialFormData: FormData = {
+  name: "",
+  email: "",
+  phone: "",
+  projectType: "",
+  message: "",
+  budget: "",
+};
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    projectType: "",
-    message: "",
-    budget: "", // "<5k", "5k-10k", "10k-25k", ">25k"
-  });
-
+  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<string | null>(null);
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
     const { name, value } = e.target;
     setFormData((s) => ({ ...s, [name]: value }));
   };
-  
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-  
+    setSubmitting(true);
+    setStatus("Envoi en cours...");
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-  
-      const result = await response.json();
-  
-      if (response.ok) {
-        console.log(result);
-      } else {
-        console.log(result.error);
-      }
-    } catch (error) {
+
+      const ct = response.headers.get("content-type") || "";
+      const payload = ct.includes("application/json") ? await response.json() : await response.text();
+
+      if (!response.ok) {
+        setStatus(typeof payload === "string" ? payload : payload?.error || "Erreur serveur");
+        return;
+        }
+
+      setFormData(initialFormData);
+      setStatus("Message envoyé. Merci, nous revenons vers vous rapidement.");
+    } catch (error: any) {
+      setStatus(error?.message || "Erreur réseau");
       console.error(error);
+    } finally {
+      setSubmitting(false);
+      // Optionnel : masquer le message après 5s
+      setTimeout(() => setStatus(null), 5000);
     }
   };
 
@@ -93,7 +110,7 @@ export default function ContactSection() {
         </div>
       </div>
 
-      {/* Formulaire contact (réécrit selon la maquette) */}
+      {/* Formulaire contact */}
       <Card className="card-purple-border shadow-xl">
         <CardContent className="p-8">
           <form onSubmit={handleSubmit} className="space-y-8">
@@ -230,14 +247,23 @@ export default function ContactSection() {
               </RadioGroup>
             </fieldset>
 
-            {/* Bouton */}
-            <Button
-              type="submit"
-              className="w-full bg-gradient-primary hover:opacity-90 text-white py-3 rounded-full font-medium transition-all duration-300"
-            >
-              <Send className="mr-2 h-4 w-4" />
-              Envoyer mon message
-            </Button>
+            {/* Bouton + statut */}
+            <div className="space-y-3">
+              <Button
+                type="submit"
+                disabled={submitting}
+                className="w-full bg-gradient-primary hover:opacity-90 text-white py-3 rounded-full font-medium transition-all duration-300"
+              >
+                <Send className="mr-2 h-4 w-4" />
+                {submitting ? "Envoi..." : "Envoyer mon message"}
+              </Button>
+
+              {status && (
+                <p className="text-sm text-center text-muted-foreground">
+                  {status}
+                </p>
+              )}
+            </div>
           </form>
         </CardContent>
       </Card>
