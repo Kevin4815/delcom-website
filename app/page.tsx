@@ -6,7 +6,8 @@ import Image from "next/image"
 import Navbar from "@/components/navbar"
 import ContactForm from "@/components/contact-form"
 import ProjectsSection from "@/components/projects";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 
 export default function HomePage() {
@@ -315,8 +316,8 @@ export default function HomePage() {
       {/* Projects Section */}
       <ProjectsSection />
 
-        {/* Testimonials Section */}
-        <section id="testimonials" className="section-padding bg-gradient-subtle">
+      {/* Testimonials Section */}
+      <section id="testimonials" className="section-padding bg-gradient-subtle">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-6xl md:text-7xl font-bold mb-6">
@@ -325,54 +326,96 @@ export default function HomePage() {
             <h3 className="text-4xl md:text-5xl font-bold mb-8">Témoignages</h3>
           </div>
 
+          {/* 1 -> 2 colonnes, items centrés */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-white border-0 shadow-lg">
-              <CardContent className="p-10">
-                <div className="flex mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                  "DEL'COM a transformé notre vision en une plateforme web exceptionnelle. Leur expertise technique et
-                  leur approche collaborative ont dépassé nos attentes."
-                </p>
-                <div className="flex items-center">
-                  {/* Avatar avec initiales */}
-                  <div className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold mr-4">
-                    N2C
-                  </div>
-                  <div>
-                    <div className="font-semibold">N2A Contrôles</div>
-                    <div className="text-sm text-muted-foreground">Expertises techniques</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-0 shadow-lg">
-              <CardContent className="p-10">
-                <div className="flex mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                  "Une équipe professionnelle qui comprend nos besoins. Notre application a été livrée dans les
-                  temps avec une qualité irréprochable."
-                </p>
-                <div className="flex items-center">
-                {/* Avatar avec initiales */}
-                <div className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold mr-4">
-                  N2A
-                </div>
-                <div>
-                  <div className="font-semibold">N2A Formations</div>
-                  <div className="text-sm text-muted-foreground">Centre de formation</div>
-                </div>
-              </div>
-              </CardContent>
-            </Card>
+            {/* wrapper du carousel */}
+            <div className="md:col-span-2 justify-self-center w-full max-w-2xl">
+            <Carousel plugins={[
+                Autoplay({
+                  delay: 5000,
+                }),
+              ]}>
+              <CarouselContent>
+                <CarouselItem>
+                    <Card className="bg-white border-0 shadow-lg">
+                    <CardContent className="p-10">
+                      <div className="flex mb-6">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                      <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                        "DEL'COM a transformé notre vision en une plateforme web exceptionnelle. Leur expertise technique et
+                        leur approche collaborative ont dépassé nos attentes."
+                      </p>
+                      <div className="flex items-center">
+                        {/* Avatar avec initiales */}
+                        <div className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold mr-4">
+                          N2C
+                        </div>
+                        <div>
+                          <div className="font-semibold">N2A Contrôles</div>
+                          <div className="text-sm text-muted-foreground">Expertises techniques</div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+                <CarouselItem>
+                  <Card className="bg-white border-0 shadow-lg">
+                    <CardContent className="p-10">
+                      <div className="flex mb-6">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                      <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                        "Une équipe professionnelle qui comprend nos besoins. Notre application a été livrée dans les
+                        temps avec une qualité irréprochable."
+                      </p>
+                      <div className="flex items-center">
+                      {/* Avatar avec initiales */}
+                      <div className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold mr-4">
+                        N2A
+                      </div>
+                      <div>
+                        <div className="font-semibold">N2A Formations</div>
+                        <div className="text-sm text-muted-foreground">Centre de formation</div>
+                      </div>
+                    </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+                <CarouselItem>
+                  <Card className="bg-white border-0 shadow-lg">
+                    <CardContent className="p-10">
+                      <div className="flex mb-6">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                      <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                        "Une équipe professionnelle qui comprend nos besoins. Notre application a été livrée dans les
+                        temps avec une qualité irréprochable."
+                      </p>
+                      <div className="flex items-center">
+                      {/* Avatar avec initiales */}
+                      <div className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold mr-4">
+                        N2A
+                      </div>
+                      <div>
+                        <div className="font-semibold">N2A Exeprtises</div>
+                        <div className="text-sm text-muted-foreground">Entreprise de diagnostics immobilier</div>
+                      </div>
+                    </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+            </div>
           </div>
         </div>
       </section>

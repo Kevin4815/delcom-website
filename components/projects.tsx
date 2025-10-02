@@ -159,7 +159,7 @@ export default function ProjectsSection() {
             ))}
             </CarouselContent>
             <CarouselPrevious />
-          <CarouselNext />
+            <CarouselNext />
         </Carousel>
         </div>
     </section>
