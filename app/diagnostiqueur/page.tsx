@@ -10,7 +10,7 @@ export default function DiagnostiqueurPage() {
     <div className="min-h-screen py-20">
             <Navbar />
       {/* Hero Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
             Offre <span className="text-gradient">diagnostiqueur</span>
@@ -113,7 +113,7 @@ export default function DiagnostiqueurPage() {
 
                 <div className="mt-6 border-t pt-6">
                   <div className="text-sm text-muted-foreground">À partir de</div>
-                  <div className="text-2xl font-bold mb-4">190&nbsp;€/mois</div>
+                  <div className="text-2xl font-bold mb-4">180&nbsp;€/mois</div>
                   {/* <Button className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
                     Choisir ce pack
                   </Button> */}
@@ -202,7 +202,7 @@ export default function DiagnostiqueurPage() {
         </div>
       </section>
       {/* Company Stats */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">DEL'COM en chiffres</h2>
@@ -227,7 +227,7 @@ export default function DiagnostiqueurPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }
