@@ -1,11 +1,12 @@
 'use client';
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Code, Smartphone, Globe, Star, Zap, Users, Settings } from "lucide-react"
+import { Code, Smartphone, Globe, Star, Zap, Users, Settings, Gem, CheckCircle, Gift, Briefcase, Package } from "lucide-react"
 import Image from "next/image"
 import Navbar from "@/components/navbar"
 import ContactForm from "@/components/contact-form"
 import ProjectsSection from "@/components/projects";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 
 export default function HomePage() {
@@ -94,18 +95,17 @@ export default function HomePage() {
         </div>
       </section>
 
-
-          <section id="services" className="section-padding bg-background">
-            <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-20">
-                <h2 className="text-6xl md:text-7xl font-bold mb-6">
-                  <span className="text-gradient">01</span>
-                </h2>
-                <h3 className="text-4xl md:text-5xl font-bold mb-8">Services</h3>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Ingénierie digitale sur-mesure
-                </p>
-              </div>
+      <section id="services" className="section-padding bg-background">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-6xl md:text-7xl font-bold mb-6">
+              <span className="text-gradient">01</span>
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-bold mb-8">Services</h3>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Ingénierie digitale sur-mesure
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="card-purple-border hover-scale">
@@ -156,12 +156,127 @@ export default function HomePage() {
         </div>
       </section>
 
+          
+      <section id="offers" className="section-padding bg-secondary">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-6xl md:text-7xl font-bold mb-6">
+              <span className="text-gradient">02</span>
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-bold mb-8">Nos Offres</h3>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Des solutions adaptées à vos besoins et à votre budget
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {/* Pack Starter */}
+            <Card className="hover-lift border-primary/20 shadow-md hover:shadow-xl transition-all h-full">
+              <CardContent className="p-4 text-center h-full flex flex-col">
+                <div>
+                  <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <Package className="h-10 w-10 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold">Pack Starter</h3>
+                </div>
+
+                <ul className="space-y-3 text-left mt-6 flex-1">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary" /> Création de site vitrine
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary" /> Maintenance 3 mois
+                  </li>
+                </ul>
+
+                <div className="mt-6 border-t pt-6">
+                  <div className="text-sm text-muted-foreground">À partir de</div>
+                  <div className="text-2xl font-bold mb-4">160&nbsp;€/mois</div>
+                  {/* <Button className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
+                    Choisir ce pack
+                  </Button> */}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Pack Business */}
+            <Card className="hover-lift border-primary/20 shadow-md hover:shadow-xl transition-all h-full">
+              <CardContent className="p-4 text-center h-full flex flex-col">
+                <div>
+                  <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <Briefcase className="h-10 w-10 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold">Pack Business</h3>
+                </div>
+
+                <ul className="space-y-3 text-left mt-6 flex-1">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary" /> Création de site professionnel
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary" /> Gestion de contenu (blog, SEO, newsletter)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary" /> Gestion des réseaux sociaux
+                  </li>
+                </ul>
+
+                <div className="mt-6 border-t pt-6">
+                  <div className="text-sm text-muted-foreground">À partir de</div>
+                  <div className="text-2xl font-bold mb-4">200&nbsp;€/mois</div>
+                  {/* <Button className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
+                    Choisir ce pack
+                  </Button> */}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Pack Ultime */}
+            <Card className="hover-lift border-primary/20 shadow-md hover:shadow-xl transition-all h-full">
+              <CardContent className="p-4 text-center h-full flex flex-col">
+                <div>
+                  <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <Gem className="h-10 w-10 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold">Pack Ultime</h3>
+                </div>
+
+                <ul className="space-y-3 text-left mt-6 flex-1">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary" /> Création de site complet
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary" /> Gestion des réseaux sociaux
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary" /> Gestion de campagnes publicitaires
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary" /> Gestion de contenu avancé (blog, SEO, newsletter)
+                  </li>
+                </ul>
+
+                <div className="mt-6 border-t pt-6">
+                  <div className="text-sm text-muted-foreground">À partir de</div>
+                  <div className="text-2xl font-bold mb-4">230&nbsp;€/mois</div>
+                  {/* <Button className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
+                    Choisir ce pack
+                  </Button> */}
+                </div>
+              </CardContent>
+            </Card>
+
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="section-padding bg-gradient-primary text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="animate-slide-in">
-              <h2 className="text-6xl md:text-7xl font-bold mb-6">02</h2>
+              <h2 className="text-6xl md:text-7xl font-bold mb-6">03</h2>
               <h3 className="text-4xl md:text-5xl font-bold mb-8">À propos de DEL'COM</h3>
               <p className="text-xl text-purple-100 mb-8 leading-relaxed">
                 Une équipe passionnée de développeurs et designers qui transforment vos idées en réalité digitale.
@@ -205,7 +320,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-6xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">04</span>
+              <span className="text-gradient">05</span>
             </h2>
             <h3 className="text-4xl md:text-5xl font-bold mb-8">Témoignages</h3>
           </div>
@@ -267,7 +382,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-6xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">05</span>
+              <span className="text-gradient">06</span>
             </h2>
             <h3 className="text-4xl md:text-5xl font-bold mb-8">Questions fréquentes</h3>
           </div>

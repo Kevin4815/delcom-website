@@ -6,6 +6,9 @@ import { Settings } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import Autoplay from "embla-carousel-autoplay"
+
 
 type Project = {
   title: string;
@@ -35,11 +38,27 @@ const PROJECTS: Project[] = [
       "Landing page claire et performante pour une entreprise d’expertises et de contrôles.",
   },
   {
+    title: "N2A Expertises",
+    category: "Sites Web",
+    image: "/n2a-expertises.png",
+    url: "https://www.n2aexpertises.fr/ ",
+    summary:
+      "Site vitrine moderne pour un centre de formation, design épuré et navigation intuitive.",
+  },
+  {
+    title: "Groupe N2A",
+    category: "Sites Web",
+    image: "/groupe-n2a.png",
+    url: "https://expertises.groupe-n2a.fr/",
+    summary:
+      "Site vitrine moderne pour un centre de formation, design épuré et navigation intuitive.",
+  },
+  {
     title: "Nouveau projet bientôt",
     category: "Applications",
-    image: null, // => animation “en construction”
+    image: null,
     url: null,
-    summary: "Nous travaillons sur quelque chose d’extraordinaire…",
+    summary: "Nous travaillons actuellement sur quelque chose d’extraordinaire…",
   },
 ];
 
@@ -56,7 +75,7 @@ export default function ProjectsSection() {
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-20">
         <h2 className="text-6xl md:text-7xl font-bold mb-6">
-          <span className="text-gradient">03</span>
+          <span className="text-gradient">04</span>
         </h2>
         <h3 className="text-4xl md:text-5xl font-bold mb-8">Nos réalisations</h3>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -81,13 +100,19 @@ export default function ProjectsSection() {
             </button>
           ))}
         </div>
-
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Carousel plugins={[
+            Autoplay({
+              delay: 3000,
+            }),
+          ]}>
+          <CarouselContent>
           {filtered.map((project, index) => (
-            <Card
+
+            <CarouselItem className="basis-1/3">
+              <Card
               key={index}
-              className="relative group bg-card border border-border/60 shadow-sm hover:shadow-md transition-shadow rounded-xl overflow-hidden"
+              className="relative group bg-card shadow-sm hover:shadow-md transition-shadow rounded-xl"
             >
               {/* Media */}
               <div className="aspect-video relative bg-muted/40">
@@ -130,9 +155,13 @@ export default function ProjectsSection() {
                 )}
               </CardContent>
             </Card>
-          ))}
+            </CarouselItem>
+            ))}
+            </CarouselContent>
+            <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
         </div>
-      </div>
     </section>
   );
 }

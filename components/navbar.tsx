@@ -3,9 +3,11 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { useRouter } from 'next/navigation'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,10 +17,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+    if (window.location.pathname === '/') {
+      router.push(`#${sectionId}`)   // met juste le hash → scroll auto
+    } else {
+      router.push(`/#${sectionId}`)  // change de page + scroll auto
     }
   }
 
@@ -57,6 +61,12 @@ export default function Navbar() {
               Services
             </button>
             <button
+              onClick={() => scrollToSection("offers")}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Nos Offres
+            </button>
+            <button
               onClick={() => scrollToSection("projects")}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
@@ -78,10 +88,10 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <Button
-            onClick={() => scrollToSection("contact")}
+            onClick={() => router.push('/diagnostiqueur')}
             className="bg-gradient-accent hover:opacity-90 text-white px-6 py-2 rounded-full font-medium transition-all duration-300"
           >
-            Démarrer un projet
+            Je suis diagnostiqueur
           </Button>
         </div>
       </div>
