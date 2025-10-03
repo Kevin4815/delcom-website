@@ -23,58 +23,6 @@ export default function DiagnostiqueurPage() {
         </div>
       </section>
 
-      {/* Company Values
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos valeurs</h2>
-            <p className="text-xl text-muted-foreground">Les principes qui guident chacune de nos actions</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="hover-lift text-center">
-              <CardContent className="p-6">
-                <Target className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Excellence</h3>
-                <p className="text-muted-foreground">
-                  Nous visons l'excellence dans chaque projet, en délivrant des solutions de qualité supérieure.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover-lift text-center">
-              <CardContent className="p-6">
-                <Lightbulb className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Innovation</h3>
-                <p className="text-muted-foreground">
-                  Nous restons à la pointe des technologies pour offrir des solutions avant-gardistes.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover-lift text-center">
-              <CardContent className="p-6">
-                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Collaboration</h3>
-                <p className="text-muted-foreground">
-                  Nous travaillons en étroite collaboration avec nos clients pour comprendre leurs besoins.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover-lift text-center">
-              <CardContent className="p-6">
-                <Award className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Fiabilité</h3>
-                <p className="text-muted-foreground">
-                  Nous nous engageons à respecter nos délais et à maintenir la plus haute qualité.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section> */}
-
       {/* Packs Section */}
       <section className="py-20 bg-secondary" id="offers">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,7 +56,7 @@ export default function DiagnostiqueurPage() {
 
                 {/* Avantage formation */}
                 <div className="text-primary font-medium mb-4">
-                  -50% sur vos formations
+                  -50% sur la formation continue
                 </div>
 
                 <div className="mt-6 border-t pt-6">
@@ -145,7 +93,7 @@ export default function DiagnostiqueurPage() {
 
                 {/* Avantage formation */}
                 <div className="text-primary font-medium mb-4">
-                  -75% sur vos formations
+                  -75% sur la formation continue
                 </div>
 
                 <div className="mt-6 border-t pt-6">
@@ -186,7 +134,7 @@ export default function DiagnostiqueurPage() {
                 {/* Avantage formation */}
                 <div className="text-primary font-medium mt-4 mb-4 flex items-center justify-center gap-2">
                   <Gift className="h-5 w-5 text-primary" />
-                  Formation offerte
+                  Formation continue offerte
                 </div>
                 <div className="mt-6 border-t pt-6">
                   <div className="text-sm text-muted-foreground">À partir de</div>

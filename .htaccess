@@ -1,0 +1,37 @@
+# --- ce que tu as déjà, NE PAS toucher ---
+PassengerEnabled on
+PassengerAppRoot "/home/pexa4457/darwin-evolution-logiciel.pexa4457.odns.fr"
+PassengerAppType node
+PassengerStartupFile server.js
+
+# --- options utiles ---
+Options -MultiViews -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1) Si l’URL correspond à un fichier statique (images, fontes, pdf, etc.),
+  #    renvoie le fichier depuis /public
+  RewriteCond %{DOCUMENT_ROOT}/public/$1 -f
+  RewriteRule ^(.*\.(?:png|jpe?g|gif|svg|webp|ico|pdf|mp4|woff2?|woff|ttf|eot))$ /public/$1 [L,NC]
+
+  # 2) Laisses passer les assets Next déjà OK chez toi
+  RewriteRule ^_next/static/(.*)$ static/$1 [L,NC]
+  RewriteRule ^_next/data/(.*)$ standalone/.next/data/$1 [L,NC]
+
+  # 3) Favicon & robots
+  RewriteCond %{REQUEST_URI} ^/favicon\.ico$ [OR]
+  RewriteCond %{REQUEST_URI} ^/robots\.txt$ [OR]
+  RewriteCond %{REQUEST_URI} ^/sitemap\.xml$
+  RewriteRule ^ - [L]
+</IfModule>
+
+# Désactive Passenger pour ces fichiers pour être sûr qu’Apache les serve lui-même
+<FilesMatch "\.(?:png|jpe?g|gif|svg|webp|ico|pdf|mp4|woff2?|woff|ttf|eot)$">
+  PassengerEnabled off
+</FilesMatch>
+
+# (facultatif) types MIME
+AddType text/css .css
+AddType application/javascript .js
