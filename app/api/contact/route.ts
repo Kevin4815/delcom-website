@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       from: ' Formulaire Del\'com <onboarding@resend.dev>', // Remplacer par la bonne adresse
       to: ['kevin.robin@n2aexpertises.fr'], // Remplacer par la bonne adresse
       subject: 'Prise de contact',
-      react: EmailTemplate({ name: body.name , email: body.email, phone: body.phone, projectType: body.projectType, message: body.message, budget: body.budget}),
+      react: EmailTemplate({ name: body.name , email: body.email, phone: body.phone, projectType: body.projectType, message: body.message}),
     });
 
     if (error) {

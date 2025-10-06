@@ -32,15 +32,15 @@ export default function Navbar() {
         isScrolled ? "navbar-blur shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
           <Image
-            src="/delcom-logo.webp"
+            src="/delcom-logo.png"
             alt="DELCOM"
-            width={100}
-            height={100}
+            width={120}
+            height={120}
             className="cursor-pointer rounded-full object-cover"
             onClick={() => scrollToSection("hero")}
           />
@@ -89,7 +89,7 @@ export default function Navbar() {
           {/* CTA Button */}
           <Button
             onClick={() => router.push('/diagnostiqueur')}
-            className="bg-gradient-accent hover:opacity-90 text-white px-6 py-2 rounded-full font-medium transition-all duration-300"
+            className="bg-gray-950 hover:opacity-90 text-white px-6 py-2 rounded-full font-medium transition-all duration-300"
           >
             Je suis diagnostiqueur
           </Button>

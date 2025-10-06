@@ -7,7 +7,7 @@ export interface EmailTemplateProps {
   phone: string;
   projectType: string;
   message: string;
-  budget: string;
+  //budget: string;
 }
 
 export function EmailTemplate({
@@ -16,7 +16,7 @@ export function EmailTemplate({
   phone,
   projectType,
   message,
-  budget,
+  //budget,
 }: EmailTemplateProps) {
   return (
     <div
@@ -58,7 +58,7 @@ export function EmailTemplate({
           </tr>
           <tr>
             <td style={{ fontWeight: 'bold', padding: '6px' }}>Budget :</td>
-            <td style={{ padding: '6px' }}>{budget}</td>
+            {/* <td style={{ padding: '6px' }}>{budget}</td> */}
           </tr>
         </tbody>
       </table>

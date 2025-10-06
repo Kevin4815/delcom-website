@@ -8,6 +8,12 @@ import ContactForm from "@/components/contact-form"
 import ProjectsSection from "@/components/projects";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 
 export default function HomePage() {
@@ -114,7 +120,7 @@ export default function HomePage() {
                 <div className="bg-gradient-primary w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
                   <Globe className="h-8 w-8 text-white" />
                 </div>
-                <h4 className="text-xl font-bold mb-3 text-primary">Conception de sites web</h4>
+                <h4 className="text-xl font-bold mb-3 text-primary">Conception/refonte de sites web</h4>
                 <p className="text-muted-foreground mb-4 text-purple-600">Sites vitrine & plateformes sur-mesure</p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>→ Un site clair et professionnel qui reflète votre image</li>
@@ -157,15 +163,11 @@ export default function HomePage() {
         </div>
       </section>
 
-          
-      <section id="offers" className="section-padding bg-secondary">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-6xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">02</span>
-            </h2>
-            <h3 className="text-4xl md:text-5xl font-bold mb-8">Nos Offres</h3>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+      <section className="py-20 bg-secondary" id="offers">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos packs</h2>
+            <p className="text-lg text-muted-foreground">
               Des solutions adaptées à vos besoins et à votre budget
             </p>
           </div>
@@ -182,18 +184,39 @@ export default function HomePage() {
                   <h3 className="text-2xl font-bold">Pack Starter</h3>
                 </div>
 
-                <ul className="space-y-3 text-left mt-6 flex-1">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" /> Création de site vitrine
+                <ul className="space-y-1 text-left mt-4 flex-1">
+                  <li className="flex items-center gap-1">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value="item-1" className="border-none">
+                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
+                          Création de site vitrine
+                        </AccordionTrigger>
+                        <AccordionContent className="p-0 mt-1 text-sm leading-snug">
+                          Yes. It adheres to the WAI-ARIA design pattern.
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" /> Maintenance 3 mois
+
+                  <li className="flex items-center gap-1">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value="item-2" className="border-none">
+                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
+                          Maintenance 3 mois
+                        </AccordionTrigger>
+                        <AccordionContent className="p-0 mt-1 text-sm leading-snug">
+                          Yes. It adheres to the WAI-ARIA design pattern.
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
                   </li>
                 </ul>
 
                 <div className="mt-6 border-t pt-6">
                   <div className="text-sm text-muted-foreground">À partir de</div>
-                  <div className="text-2xl font-bold mb-4">160&nbsp;€/mois</div>
+                  <div className="text-2xl font-bold mb-4">2000&nbsp;€ HT</div>
                   {/* <Button className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
                     Choisir ce pack
                   </Button> */}
@@ -211,21 +234,54 @@ export default function HomePage() {
                   <h3 className="text-2xl font-bold">Pack Business</h3>
                 </div>
 
-                <ul className="space-y-3 text-left mt-6 flex-1">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" /> Création de site professionnel
+                <ul className="space-y-1 text-left mt-4 flex-1">
+                  <li className="flex items-center gap-1">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value="item-1" className="border-none">
+                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
+                          Création de site professionnel
+                        </AccordionTrigger>
+                        <AccordionContent className="p-0 mt-1 text-sm leading-snug">
+                          Yes. It adheres to the WAI-ARIA design pattern.
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" /> Gestion de contenu (blog, SEO, newsletter)
+
+                  <li className="flex items-center gap-1">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value="item-2" className="border-none">
+                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
+                          Gestion de contenu (blog, SEO, newsletter)
+                        </AccordionTrigger>
+                        <AccordionContent className="p-0 mt-1 text-sm leading-snug">
+                          Yes. It adheres to the WAI-ARIA design pattern.
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" /> Gestion des réseaux sociaux
+
+                  <li className="flex items-center gap-1">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value="item-3" className="border-none">
+                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
+                          Gestion des réseaux sociaux
+                        </AccordionTrigger>
+                        <AccordionContent className="p-0 mt-1 text-sm leading-snug">
+                          Yes. It adheres to the WAI-ARIA design pattern.
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
                   </li>
                 </ul>
 
                 <div className="mt-6 border-t pt-6">
                   <div className="text-sm text-muted-foreground">À partir de</div>
-                  <div className="text-2xl font-bold mb-4">200&nbsp;€/mois</div>
+                  <div className="text-2xl font-bold">200&nbsp;€/mois</div>
+                  <div className="text-sm text-muted-foreground">Engagement 24 mois</div>
                   {/* <Button className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
                     Choisir ce pack
                   </Button> */}
@@ -243,24 +299,68 @@ export default function HomePage() {
                   <h3 className="text-2xl font-bold">Pack Ultime</h3>
                 </div>
 
-                <ul className="space-y-3 text-left mt-6 flex-1">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" /> Création de site complet
+                <ul className="space-y-1 text-left mt-4 flex-1">
+                  <li className="flex items-center gap-1">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value="item-1" className="border-none">
+                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
+                          Création de site complet
+                        </AccordionTrigger>
+                        <AccordionContent className="p-0 mt-1 text-sm leading-snug">
+                          Yes. It adheres to the WAI-ARIA design pattern.
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" /> Gestion des réseaux sociaux
+
+                  <li className="flex items-center gap-1">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value="item-2" className="border-none">
+                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
+                          Gestion des réseaux sociaux
+                        </AccordionTrigger>
+                        <AccordionContent className="p-0 mt-1 text-sm leading-snug">
+                          Yes. It adheres to the WAI-ARIA design pattern.
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" /> Gestion de campagnes publicitaires
+
+                  <li className="flex items-center gap-1">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value="item-3" className="border-none">
+                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
+                          Gestion de campagnes publicitaires
+                        </AccordionTrigger>
+                        <AccordionContent className="p-0 mt-1 text-sm leading-snug">
+                          Yes. It adheres to the WAI-ARIA design pattern.
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" /> Gestion de contenu avancé (blog, SEO, newsletter)
+
+                  <li className="flex items-center gap-1">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value="item-4" className="border-none">
+                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
+                          Gestion de contenu avancé (blog, SEO, newsletter)
+                        </AccordionTrigger>
+                        <AccordionContent className="p-0 mt-1 text-sm leading-snug">
+                          Yes. It adheres to the WAI-ARIA design pattern.
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
                   </li>
                 </ul>
 
                 <div className="mt-6 border-t pt-6">
                   <div className="text-sm text-muted-foreground">À partir de</div>
-                  <div className="text-2xl font-bold mb-4">230&nbsp;€/mois</div>
+                  <div className="text-2xl font-bold">230&nbsp;€/mois</div>
+                  <div className="text-sm text-muted-foreground">Engagement 24 mois</div>
                   {/* <Button className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
                     Choisir ce pack
                   </Button> */}

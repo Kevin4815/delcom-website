@@ -12,13 +12,13 @@ import Autoplay from "embla-carousel-autoplay"
 
 type Project = {
   title: string;
-  category: "Sites Web" | "Applications" | "Design";
+  category: "Sites Web" | "Applications" | "Logiciel";
   image: string | null;
   url?: string | null;
   summary?: string;
 };
 
-const ALL_FILTERS = ["Tous", "Sites Web", "Applications", "Design"] as const;
+const ALL_FILTERS = ["Tous", "Sites Web", "Applications", "Logiciel"] as const;
 
 const PROJECTS: Project[] = [
   {
