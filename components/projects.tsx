@@ -27,7 +27,7 @@ const PROJECTS: Project[] = [
     image: "/n2a-formations.png",
     url: "https://www.n2aformations.fr",
     summary:
-      "Site vitrine moderne pour un centre de formation, design épuré et navigation intuitive.",
+      "Site web moderne pour un centre de formation, design épuré et navigation intuitive.",
   },
   {
     title: "N2A Contrôles",
@@ -41,9 +41,9 @@ const PROJECTS: Project[] = [
     title: "N2A Expertises",
     category: "Sites Web",
     image: "/n2a-expertises.png",
-    url: "https://www.n2aexpertises.fr/ ",
+    url: "https://www.n2aexpertises.fr/",
     summary:
-      "Site vitrine moderne pour un centre de formation, design épuré et navigation intuitive.",
+      "Site web dédié au diagnostic immobilier",
   },
   {
     title: "Groupe N2A",
@@ -51,7 +51,15 @@ const PROJECTS: Project[] = [
     image: "/groupe-n2a.png",
     url: "https://expertises.groupe-n2a.fr/",
     summary:
-      "Site vitrine moderne pour un centre de formation, design épuré et navigation intuitive.",
+      "Site du groupe N2A, présentation de l’identité du groupe, de ses activités et de ses engagements",
+  },
+  {
+    title: "Immo et co",
+    category: "Sites Web",
+    image: "/immo-et-co.png",
+    url: "https://immoetco.com/",
+    summary:
+      "Site web moderne pour un centre de formation, design épuré et navigation intuitive.",
   },
   {
     title: "Nouveau projet bientôt",
@@ -112,7 +120,7 @@ export default function ProjectsSection() {
             <CarouselItem className="basis-1/3">
               <Card
               key={index}
-              className="relative group bg-card shadow-sm hover:shadow-md transition-shadow rounded-xl"
+              className="relative group bg-card shadow-sm hover:shadow-md transition-shadow rounded-xl h-[420px]"
             >
               {/* Media */}
               <div className="aspect-video relative bg-muted/40">
@@ -121,7 +129,6 @@ export default function ProjectsSection() {
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover"
                   />
                 ) : (
                   // Animation “en construction”
