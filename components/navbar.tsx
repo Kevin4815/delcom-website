@@ -42,14 +42,14 @@ export default function Navbar() {
             width={120}
             height={120}
             className="cursor-pointer rounded-full object-cover"
-            onClick={() => scrollToSection("hero")}
+            onClick={() => scrollToSection("accueil")}
           />
           </div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <button
-              onClick={() => scrollToSection("about")}
+              onClick={() => scrollToSection("à-propos")}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
               À propos
@@ -61,19 +61,19 @@ export default function Navbar() {
               Services
             </button>
             <button
-              onClick={() => scrollToSection("offers")}
+              onClick={() => scrollToSection("offres")}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
               Nos Offres
             </button>
             <button
-              onClick={() => scrollToSection("projects")}
+              onClick={() => scrollToSection("projets")}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
               Projets
             </button>
             <button
-              onClick={() => scrollToSection("testimonials")}
+              onClick={() => scrollToSection("avis")}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
               Avis

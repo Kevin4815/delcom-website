@@ -71,7 +71,7 @@ export default function ProjectsSection() {
   }, [active]);
 
   return (
-    <section id="projects" className="section-padding bg-background">
+    <section id="projets" className="section-padding bg-background">
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-20">
         <h2 className="text-6xl md:text-7xl font-bold mb-6">
