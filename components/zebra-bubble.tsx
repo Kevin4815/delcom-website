@@ -1,121 +1,58 @@
-import { Mail, MapPin } from "lucide-react";
-import Image from "next/image";
+import { Mail, MapPin } from "lucide-react"
+import Image from "next/image"
 
 export default function ZebraBubble() {
   return (
-    <div style={{ display: "flex", alignItems: "flex-start", gap: "40px" }}>
-      <div style={{ display: "flex", alignItems: "flex-start", gap: "20px", marginTop: "40px" }}>
-        {/* Zèbre */}
+    <div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-10">
+      <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 w-full">
+        {/* Zèbre - Hidden on small mobile, smaller on tablet */}
         <Image
           src="/zebre.png"
           alt="zèbre"
           width={230}
           height={230}
-          style={{ height: "auto" }}
+          className="hidden sm:block w-32 sm:w-40 lg:w-56 h-auto flex-shrink-0"
         />
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <div className="flex flex-col gap-4 sm:gap-6 w-full">
           {/* Bulle */}
-          <div
-            style={{
-              position: "relative",
-              maxWidth: "400px",
-              background: "#fff",
-              border: "1px solid #ddd",
-              borderRadius: "16px",
-              padding: "20px",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-            }}
-          >
-            <h2 style={{ margin: 0, fontSize: "24px", fontWeight: "bold" }}>
-              Parlons de votre projet
-            </h2>
-            <p
-              style={{
-                marginTop: "8px",
-                fontSize: "18px",
-                color: "#555",
-                lineHeight: "1.4",
-              }}
-            >
-              Prêt à transformer votre idée en réalité digitale ? Contactez-nous
-              pour discuter de vos besoins et obtenir un devis personnalisé.
+          <div className="relative max-w-full sm:max-w-md bg-white border border-border rounded-2xl p-4 sm:p-6 shadow-lg">
+            <h2 className="text-xl sm:text-2xl font-bold mb-2">Parlons de votre projet</h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Prêt à transformer votre idée en réalité digitale ? Contactez-nous pour discuter de vos besoins et obtenir
+              un devis personnalisé.
             </p>
 
-            {/* Flèche */}
-            <div
-              style={{
-                position: "absolute",
-                top: "30px",
-                left: "-15px",
-                width: 0,
-                height: 0,
-                borderTop: "10px solid transparent",
-                borderBottom: "10px solid transparent",
-                borderRight: "15px solid #fff",
-                filter: "drop-shadow(0 2px 2px rgba(0,0,0,0.1))",
-              }}
-            />
+            {/* Flèche - Hidden on mobile */}
+            <div className="hidden sm:block absolute top-8 -left-3 w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-r-[15px] border-r-white" />
           </div>
 
           {/* Email + Adresse */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "20px",
-              marginTop: "20px",
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <div
-                style={{
-                  width: "48px",
-                  height: "48px",
-                  borderRadius: "50%",
-                  background: "linear-gradient(135deg, #6366f1, #9333ea)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Mail style={{ width: "24px", height: "24px", color: "#fff" }} />
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 flex-shrink-0 rounded-full bg-gradient-primary flex items-center justify-center">
+                <Mail className="w-5 h-5 text-white" />
               </div>
-              <div>
-                <div style={{ fontWeight: "600" }}>Email</div>
-                <div style={{ color: "#555" }}>
+              <div className="min-w-0">
+                <div className="font-semibold text-sm sm:text-base">Email</div>
+                <div className="text-xs sm:text-sm text-muted-foreground break-all">
                   contact@darwinevolutionlogiciel.fr
                 </div>
               </div>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <div
-                style={{
-                  width: "48px",
-                  height: "48px",
-                  borderRadius: "50%",
-                  background: "linear-gradient(135deg, #6366f1, #9333ea)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <MapPin
-                  style={{ width: "24px", height: "24px", color: "#fff" }}
-                />
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 flex-shrink-0 rounded-full bg-gradient-primary flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-white" />
               </div>
               <div>
-                <div style={{ fontWeight: "600" }}>Adresse</div>
-                <div style={{ color: "#555" }}>Montauban, France</div>
+                <div className="font-semibold text-sm sm:text-base">Adresse</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Montauban, France</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div>
-      </div>
     </div>
-  );
+  )
 }

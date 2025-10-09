@@ -14,14 +14,85 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import PackCard from "@/components/pack-card";
 
 
 export default function HomePage() {
-
+  const items = [
+    [{title: "Création de site vitrine", subs: ["Création d'un site web complet"]},
+    {title: "Maintenance 3 mois", subs: ["Résolution des bugs du site web"]}
+  ]
+  ]
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: "smooth"});
   };
+
+  const content = [
+    [
+      {
+        title: "Création de site vitrine", 
+        subs: ["Pages : Accueil, contact, à propos, service",]
+      },
+      {
+        title: "Maintenance 3 mois", 
+        subs: ["Modification du site (3 par mois)"]
+      }
+    ],
+    [
+      {
+        title: "Création de site professionnel", 
+        subs: ["Pages : Accueil, contact, à propos, + 1 page par service"]
+      }, 
+      {
+        title: "Gestion de contenu", 
+        subs: ["Création 1 article et 1 newsletter par mois"]
+      }, 
+      {
+        title: "Gestion des réseaux sociaux", 
+        subs: ["Élaboration d'une stratégie de communication, choix des canaux, déploiement des réseaux, création d'un template post"]
+      }
+    ],
+    [
+      {
+        title: "Création du site complet", 
+        subs: ["Pages : Accueil, contact, à propos, 1 page par service, intégration des paiement"]
+      }, 
+      {
+        title: "Gestion des réseaux sociaux", 
+        subs: ["Élaboration d'une stratégie de communication, choix des canaux, déploiement des réseaux, création d'un template post, calendrier éditorial sur 3 mois"]},
+      {
+        title: "Gestion des campagnes publicitaire", 
+        subs: ["Étude du marché, identification des cibles, création d'une campagne"]
+      }, 
+      {
+        title: "Gestion de contenu avancé", 
+        subs: ["Création 2 articles et 2 newsletters par mois"]
+      }
+    ],
+    [
+      {
+        title: "Application iOS & Android", 
+        subs: ["Développement multiplateforme", "Compatibilité iPhone & Android"]
+      }, 
+      {
+        title: "Design moderne", 
+        subs: ["Interface intuitive", "UX adaptée au mobile"]
+      }, 
+      {
+        title: "Fonctionnalités natives", 
+        subs: ["Notifications push", "GPS, caméra et mode hors-ligne"]
+      }, 
+      {
+        title: "Intégrations", 
+        subs: ["Connexion avec vos outils", "APIs externes"]
+      }, 
+      {
+        title: "Publication", 
+        subs: ["Mise en ligne App Store", "Mise en ligne Google Play"]
+      }
+    ]
+  ]
 
   return (
     <div className="min-h-screen">
@@ -171,222 +242,12 @@ export default function HomePage() {
               Des solutions adaptées à vos besoins et à votre budget
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            {/* Pack Starter */}
-            <Card className="hover-lift border-primary/20 shadow-md hover:shadow-xl transition-all h-full">
-              <CardContent className="p-4 text-center h-full flex flex-col">
-                <div>
-                  <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <Package className="h-10 w-10 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold">Pack Starter</h3>
-                </div>
-
-                <ul className="space-y-1 text-left mt-4 flex-1">
-                  <li className="flex items-center gap-1">
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="item-1" className="border-none">
-                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
-                          <div className="flex items-center gap-4">
-                          <CheckCircle className="h-5 w-5 text-primary" />
-                            Création de site vitrine
-                          </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="p-0 mt-1 text-sm leading-snug ml-6 font-semibold">
-                          Pages : Accueil, contact, à propos, service
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </li>
-
-                  <li className="flex items-center gap-1">
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="item-2" className="border-none">
-                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
-                        <div className="flex items-center gap-4">
-                          <CheckCircle className="h-5 w-5 text-primary" />
-                            Maintenance 3 mois
-                        </div>
-                        </AccordionTrigger>
-                       <AccordionContent className="p-0 mt-1 text-sm leading-snug ml-6 font-semibold">
-                          Modification du site (3 par mois)
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </li>
-                </ul>
-
-                <div className="mt-6 border-t pt-6">
-                  <div className="text-sm text-muted-foreground">À partir de</div>
-                  <div className="text-2xl font-bold mb-4">1999&nbsp;€ HT</div>
-                  {/* <Button className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
-                    Choisir ce pack
-                  </Button> */}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Pack Business */}
-            <Card className="hover-lift border-primary/20 shadow-md hover:shadow-xl transition-all h-full">
-              <CardContent className="p-4 text-center h-full flex flex-col">
-                <div>
-                  <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <Briefcase className="h-10 w-10 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold">Pack Business</h3>
-                </div>
-
-                <ul className="space-y-1 text-left mt-4 flex-1">
-                  <li className="flex items-center gap-1">
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="item-1" className="border-none">
-                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
-                        <div className="flex items-center gap-4">
-                          <CheckCircle className="h-5 w-5 text-primary" />
-                           Création de site professionnel
-                        </div>
-                        </AccordionTrigger>
-                       <AccordionContent className="p-0 mt-1 text-sm leading-snug ml-6 font-semibold">
-                          Pages : Accueil, contact, à propos, + 1 page par service
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </li>
-
-                  <li className="flex items-center gap-1">
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="item-2" className="border-none">
-                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
-                        <div className="flex items-center gap-4">
-                          <CheckCircle className="h-5 w-5 text-primary" />
-                          Gestion de contenu
-                        </div>
-                        </AccordionTrigger>
-                       <AccordionContent className="p-0 mt-1 text-sm leading-snug ml-6 font-semibold">
-                          Création 1 article et 1 newsletter par mois
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </li>
-
-                  <li className="flex items-center gap-1">
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="item-3" className="border-none">
-                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
-                        <div className="flex items-center gap-4">
-                          <CheckCircle className="h-5 w-5 text-primary" />
-                          Gestion des réseaux sociaux
-                        </div>
-                        </AccordionTrigger>
-                       <AccordionContent className="p-0 mt-1 text-sm leading-snug ml-6 font-semibold">
-                          Élaboration d'une stratégie de communication, choix des canaux, déploiement des réseaux, création d'un template post
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </li>
-                </ul>
-
-                <div className="mt-6 border-t pt-6">
-                  <div className="text-sm text-muted-foreground">À partir de</div>
-                  <div className="text-2xl font-bold">349&nbsp;€/mois</div>
-                  <div className="text-sm text-muted-foreground">Engagement 24 mois</div>
-                  {/* <Button className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
-                    Choisir ce pack
-                  </Button> */}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Pack Ultime */}
-            <Card className="hover-lift border-primary/20 shadow-md hover:shadow-xl transition-all h-full">
-              <CardContent className="p-4 text-center h-full flex flex-col">
-                <div>
-                  <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <Gem className="h-10 w-10 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold">Pack Ultime</h3>
-                </div>
-
-                <ul className="space-y-1 text-left mt-4 flex-1">
-                  <li className="flex items-center gap-1">
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="item-1" className="border-none">
-                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
-                        <div className="flex items-center gap-4">
-                          <CheckCircle className="h-5 w-5 text-primary" />
-                          Création de site complet
-                        </div>
-                        </AccordionTrigger>
-                       <AccordionContent className="p-0 mt-1 text-sm leading-snug ml-6 font-semibold">
-                          Pages : Accueil, contact, à propos, 1 page par service, intégration des paiement
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </li>
-
-                  <li className="flex items-center gap-1">
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="item-2" className="border-none">
-                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
-                        <div className="flex items-center gap-4">
-                          <CheckCircle className="h-5 w-5 text-primary" />
-                          Gestion des réseaux sociaux
-                        </div>
-                        </AccordionTrigger>
-                       <AccordionContent className="p-0 mt-1 text-sm leading-snug ml-6 font-semibold">
-                          Élaboration d'une stratégie de communication, choix des canaux, déploiement des réseaux, création d'un template post, calendrier éditorial sur 3 mois
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </li>
-
-                  <li className="flex items-center gap-1">
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="item-3" className="border-none">
-                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
-                        <div className="flex items-center gap-4">
-                          <CheckCircle className="h-5 w-5 text-primary" />
-                          Gestion de campagnes publicitaires
-                        </div>
-                        </AccordionTrigger>
-                       <AccordionContent className="p-0 mt-1 text-sm leading-snug ml-6 font-semibold">
-                          Étude du marché, identification des cibles, création d'une campagne
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </li>
-
-                  <li className="flex items-center gap-1">
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="item-4" className="border-none">
-                        <AccordionTrigger className="text-base p-2 font-normal hover:no-underline">
-                        <div className="flex items-center gap-4">
-                          <CheckCircle className="h-5 w-5 text-primary" />
-                          Gestion de contenu avancé
-                        </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="p-0 mt-1 text-sm leading-snug ml-6 font-semibold">
-                          Création 2 articles et 2 newsletters par mois
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  </li>
-                </ul>
-
-                <div className="mt-6 border-t pt-6">
-                  <div className="text-sm text-muted-foreground">À partir de</div>
-                  <div className="text-2xl font-bold">599&nbsp;€/mois</div>
-                  <div className="text-sm text-muted-foreground">Engagement 24 mois</div>
-                  {/* <Button className="w-full bg-gradient-to-r from-primary to-primary/80 text-white py-3 rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
-                    Choisir ce pack
-                  </Button> */}
-                </div>
-              </CardContent>
-            </Card>
-
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:[&>*:last-child:nth-child(3n+1)]:col-start-2">
+            <PackCard name={"Pack Starter"} items={content[0]} price={1999} isSubscription={false} promoText="" btnText={"Choisir ce pack"}/>
+            <PackCard name={"Pack Business"} items={content[1]} price={349} isSubscription={true} promoText="" btnText={"Choisir ce pack"} />
+            <PackCard name={"Pack Ultime"} items={content[2]} price={599} isSubscription={true} promoText="" btnText={"Choisir ce pack"} />
+            <PackCard name={"Pack Mobile"} items={content[3]} price={null} isSubscription={false} promoText={""} btnText={"Demander un devis"} />
+           </div>
         </div>
       </section>
 
@@ -448,11 +309,16 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* wrapper du carousel */}
             <div className="md:col-span-2 justify-self-center w-full max-w-2xl">
-            <Carousel plugins={[
+            <Carousel
+              plugins={[
                 Autoplay({
-                  delay: 5000,
+                  delay: 3000,
                 }),
-              ]}>
+              ]}
+              opts={{
+                align: "start",
+                loop: true,
+              }}>
               <CarouselContent>
                 <CarouselItem>
                     <Card className="bg-white border-0 shadow-lg">

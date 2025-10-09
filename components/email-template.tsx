@@ -56,10 +56,6 @@ export function EmailTemplate({
             <td style={{ fontWeight: 'bold', padding: '6px' }}>Projet :</td>
             <td style={{ padding: '6px' }}>{projectType}</td>
           </tr>
-          <tr>
-            <td style={{ fontWeight: 'bold', padding: '6px' }}>Budget :</td>
-            {/* <td style={{ padding: '6px' }}>{budget}</td> */}
-          </tr>
         </tbody>
       </table>
 
