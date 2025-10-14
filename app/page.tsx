@@ -1,7 +1,7 @@
 'use client';
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Code, Smartphone, Globe, Star, Zap, Users, Settings, Gem, CheckCircle, Gift, Briefcase, Package } from "lucide-react"
+import { Code, Smartphone, Globe, Star, Zap, Users, Settings, Gem, CheckCircle, Gift, Briefcase, Package, HeartHandshake, Puzzle, Crown, Monitor } from "lucide-react"
 import Image from "next/image"
 import Navbar from "@/components/navbar"
 import ContactForm from "@/components/contact-form"
@@ -15,89 +15,19 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import PackCard from "@/components/pack-card";
+import { content } from "@/components/pack-cards-content";
 
 
 export default function HomePage() {
-  const items = [
-    [{title: "Création de site vitrine", subs: ["Création d'un site web complet"]},
-    {title: "Maintenance 3 mois", subs: ["Résolution des bugs du site web"]}
-  ]
-  ]
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: "smooth"});
   };
 
-  const content = [
-    [
-      {
-        title: "Création de site vitrine", 
-        subs: ["Pages : Accueil, contact, à propos, service",]
-      },
-      {
-        title: "Maintenance 3 mois", 
-        subs: ["Modification du site (3 par mois)"]
-      }
-    ],
-    [
-      {
-        title: "Création de site professionnel", 
-        subs: ["Pages : Accueil, contact, à propos, + 1 page par service"]
-      }, 
-      {
-        title: "Gestion de contenu", 
-        subs: ["Création 1 article et 1 newsletter par mois"]
-      }, 
-      {
-        title: "Gestion des réseaux sociaux", 
-        subs: ["Élaboration d'une stratégie de communication, choix des canaux, déploiement des réseaux, création d'un template post"]
-      }
-    ],
-    [
-      {
-        title: "Création du site complet", 
-        subs: ["Pages : Accueil, contact, à propos, 1 page par service, intégration des paiement"]
-      }, 
-      {
-        title: "Gestion des réseaux sociaux", 
-        subs: ["Élaboration d'une stratégie de communication, choix des canaux, déploiement des réseaux, création d'un template post, calendrier éditorial sur 3 mois"]},
-      {
-        title: "Gestion des campagnes publicitaire", 
-        subs: ["Étude du marché, identification des cibles, création d'une campagne"]
-      }, 
-      {
-        title: "Gestion de contenu avancé", 
-        subs: ["Création 2 articles et 2 newsletters par mois"]
-      }
-    ],
-    [
-      {
-        title: "Application iOS & Android", 
-        subs: ["Développement multiplateforme", "Compatibilité iPhone & Android"]
-      }, 
-      {
-        title: "Design moderne", 
-        subs: ["Interface intuitive", "UX adaptée au mobile"]
-      }, 
-      {
-        title: "Fonctionnalités natives", 
-        subs: ["Notifications push", "GPS, caméra et mode hors-ligne"]
-      }, 
-      {
-        title: "Intégrations", 
-        subs: ["Connexion avec vos outils", "APIs externes"]
-      }, 
-      {
-        title: "Publication", 
-        subs: ["Mise en ligne App Store", "Mise en ligne Google Play"]
-      }
-    ]
-  ]
-
   return (
     <div className="min-h-screen">
       <Navbar />
-
       <section
         id="accueil"
         className="relative min-h-screen flex items-center justify-center geometric-bg grid-bg overflow-hidden pt-20"
@@ -234,20 +164,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-secondary" id="offres">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos packs</h2>
-            <p className="text-lg text-muted-foreground">
-              Des solutions adaptées à vos besoins et à votre budget
+      <section id="offres" className="section-padding bg-secondary">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-6xl md:text-7xl font-bold mb-6">
+              <span className="text-gradient">02</span>
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-bold mb-8">Nos packs</h3>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Des solutions adaptées à vos besoins et à votre budget
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:[&>*:last-child:nth-child(3n+1)]:col-start-2">
-            <PackCard name={"Pack Starter"} items={content[0]} price={1999} isSubscription={false} promoText="" btnText={"Choisir ce pack"}/>
-            <PackCard name={"Pack Business"} items={content[1]} price={349} isSubscription={true} promoText="" btnText={"Choisir ce pack"} />
-            <PackCard name={"Pack Ultime"} items={content[2]} price={599} isSubscription={true} promoText="" btnText={"Choisir ce pack"} />
-            <PackCard name={"Pack Mobile"} items={content[3]} price={null} isSubscription={false} promoText={""} btnText={"Demander un devis"} />
-           </div>
+            <PackCard icon={Monitor} name="Pack Starter" items={content[0]} price={999} isSubscription={false} promoText="" btnText="Choisir ce pack" />
+            <PackCard icon={Briefcase} name="Pack Business" items={content[1]} price={349} isSubscription={true} promoText="" btnText="Choisir ce pack" />
+            <PackCard icon={Crown} name="Pack Ultime" items={content[2]} price={599} isSubscription={true} promoText="" btnText="Choisir ce pack" />
+            <PackCard icon={Smartphone} name="Pack Mobile" items={content[3]} price={null} isSubscription={false} promoText="" btnText="Demander un devis" />
+            <PackCard icon={Puzzle} name="Offre sur-mesure" items={content[4]} price={null} isSubscription={false} promoText="" btnText="Demander un devis" />
+            <PackCard icon={HeartHandshake} name="Offre Association" items={content[5]} price={null} isSubscription={false} promoText="" btnText="Nous contacter" />
+          </div>
         </div>
       </section>
 
