@@ -16,8 +16,8 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: ' Formulaire Del\'com <contact@darwinevolutionlogiciel.fr>',
-      to: ['con'], // Remplacer par la bonne adresse
+      from: ' Formulaire Del\'com <contact@del-com.pro>',
+      to: ['contact@del-com.pro'],
       bcc: 'kevin.robin@n2aexpertises.fr',
       subject: 'Prise de contact',
       react: EmailTemplate({ name: body.name , email: body.email, phone: body.phone, projectType: body.projectType, message: body.message}),

@@ -36,7 +36,7 @@ export default function ZebraBubble() {
               <div className="min-w-0">
                 <div className="font-semibold text-sm sm:text-base">Email</div>
                 <div className="text-xs sm:text-sm text-muted-foreground break-all">
-                  contact@darwinevolutionlogiciel.fr
+                  contact@del-com.pro
                 </div>
               </div>
             </div>

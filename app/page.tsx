@@ -323,7 +323,7 @@ export default function HomePage() {
                         N2A
                       </div>
                       <div>
-                        <div className="font-semibold">N2A Exeprtises</div>
+                        <div className="font-semibold">N2A Expertises</div>
                         <div className="text-sm text-muted-foreground">Entreprise de diagnostics immobilier</div>
                       </div>
                     </div>
